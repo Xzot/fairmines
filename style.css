@@ -1,28 +1,41 @@
+/* Fair Mines site, 1.0.2 "Casing": the pages look like the app, a matte 1970s instrument.
+   Avenir Next words, DIN numbers, ivory keys over a darker edge, one charcoal window, one green. */
 :root {
-  --paper: #FAF7F0; --surface: #FFFFFF; --ink: #1B1A17; --muted: #5F5A52; --line: #DAD3C6; --accent: #0B7268;
+  --casing: #F0EFEA; --bay: #E2E0D9; --key: #FBFAF7; --edge: #C9C6BC; --line: #CBC8BF;
+  --ink: #222222; --muted: #5A5852; --window: #2A2A28; --on-window: #EEEDE8; --on-window-muted: #C9C7C0;
+  --signal: #1C7448;
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #121212; --surface: #1D1D1F; --ink: #F2EFE8; --muted: #A8A39A; --line: #34322E; --accent: #3FD1BE; }
+  :root { --casing: #1B1B1A; --bay: #141413; --key: #2A2A28; --edge: #0F0F0E; --line: #3A3A37;
+    --ink: #EEEDE8; --muted: #A9A79F; --window: #0E0E0D; --signal: #5BCB8E; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--paper); color: var(--ink);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
-.hero { max-width: 720px; margin: 0 auto; padding: 44px 20px 0; text-align: center; }
-.hero img { width: 88px; height: 88px; border-radius: 20px; border: 1px solid var(--line); }
-.hero h1 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 700; font-size: 42px; letter-spacing: -0.5px; margin: 14px 0 2px; }
-.hero p { margin: 0; color: var(--muted); font-family: "New York", "Iowan Old Style", Georgia, serif; font-style: italic; }
-nav { margin-top: 22px; padding: 10px 0; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase;
-  border-top: 1px solid var(--line); border-bottom: 2px solid var(--ink); }
-nav a { color: var(--ink); text-decoration: none; margin: 0 12px; }
-nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
-main { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
-h2 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 700; font-size: 30px; margin: 28px 0 8px; }
-h3 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 600; font-size: 20px; margin: 28px 0 4px;
-  padding-top: 18px; border-top: 1px solid var(--line); }
-a { color: var(--accent); }
+body { margin: 0; background: var(--casing); color: var(--ink);
+  font: 17px/1.6 "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif; }
+.hero { max-width: 720px; margin: 0 auto; padding: 32px 20px 0; }
+.hero::before { content: "No-guess minesweeper"; display: block; font-size: 12px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); }
+.hero img { float: right; width: 72px; height: 72px; border-radius: 16px; border: 1px solid var(--line); }
+.hero h1 { font-weight: 700; font-size: 40px; letter-spacing: -0.3px; margin: 2px 0 0; line-height: 1.15; }
+.hero p { margin: 4px 0 0; color: var(--muted); }
+nav { clear: both; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+nav a { flex: 1 1 0; min-width: 96px; text-align: center; padding: 10px 12px 9px; text-decoration: none;
+  color: var(--on-window); background: var(--window); border-radius: 8px; box-shadow: 0 4px 0 #121211;
+  font-weight: 600; font-size: 15px; }
+nav a[aria-current="page"] { background: var(--signal); color: #FFFFFF; box-shadow: 0 4px 0 #0E4027; }
+@media (prefers-color-scheme: dark) { nav a[aria-current="page"] { background: #1F844C; } }
+nav a:active { transform: translateY(3px); box-shadow: 0 1px 0 #121211; }
+main { max-width: 720px; margin: 0 auto; padding: 24px 20px 56px; }
+h2 { font-weight: 700; font-size: 28px; margin: 24px 0 8px; }
+h3 { font-weight: 600; font-size: 19px; margin: 22px 0 4px; }
+h3::before { content: ""; display: block; height: 1px; background: var(--line); margin-bottom: 18px; }
+a { color: var(--signal); }
 ol, ul { padding-left: 22px; }
 li { margin: 4px 0; }
-.card { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 18px 22px; margin: 18px 0; }
+.card { background: var(--window); color: var(--on-window); border-radius: 14px; padding: 18px 22px; margin: 18px 0;
+  border: 3px solid #161615; }
+.card a { color: #7FDCA6; }
 .muted { color: var(--muted); font-size: 15px; }
-footer { max-width: 720px; margin: 0 auto; text-align: center; color: var(--muted); font-size: 14px; padding: 20px; border-top: 2px solid var(--ink); }
+footer { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: 14px; padding: 20px;
+  border-top: 1px solid var(--line); }
